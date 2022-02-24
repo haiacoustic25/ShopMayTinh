@@ -1,0 +1,100 @@
+POST http://localhost:5000/auth/register 
+Content-Type: application/json
+
+{
+    "firstName":"Minh",
+    "lastName":"Hai",
+    "phoneNumber":123,
+    "username":"admin",
+    "password":"admin",
+    "avatar":"https://firebasestorage.googleapis.com/v0/b/shopmaytinh-f4fce.appspot.com/o/images.png?alt=media&token=f45c072a-d641-41f5-97bf-ac2a5ef5887c",
+    "admin":true
+}
+
+### 
+POST http://localhost:5000/auth/login 
+Content-Type: application/json
+
+{
+    "username":"admin",
+    "password":"admin"
+}
+
+### 
+POST http://localhost:5000/product/create/laptop 
+Content-Type: application/json
+
+{   
+    "name":"laptop"
+}
+
+### 
+GET http://localhost:5000/product/post/laptop 
+Content-Type: application/json
+
+### 
+GET http://localhost:5000/product/post/mouse 
+Content-Type: application/json
+
+### 
+POST http://localhost:5000/product/create/laptop
+Content-Type: application/json
+
+{   
+    "name":"a",
+    "trademark":"a",
+      "price":1,
+      "promotion":1,
+      "color":"a",
+      "storage":"a",
+      "RAM":"a",
+      "img":"a",
+      "descriptions":"a",
+      "battery":1,
+      "weight":1,
+      "screenSize":"a"
+}
+
+### 
+POST http://localhost:5000/product/create/mouse
+Content-Type: application/json
+
+{   
+    "name":"a",
+    "trademark":"a",
+      "price":1,
+      "promotion":1,
+      "color":"a",
+      "img":"a",
+      "descriptions":"a"
+     
+}
+
+
+### 
+PUT http://localhost:5000/product/fix/laptop/62123d3181c4bc6b8c98d53e
+Content-Type: application/json
+
+
+{   
+    "name":"b",
+    "trademark":"b",
+      "price":2,
+      "promotion":1,
+      "color":"a",
+      "storage":"a",
+      "RAM":"a",
+      "img":"a",
+      "descriptions":"a",
+      "battery":1,
+      "weight":1,
+      "screenSize":"a"
+}
+
+### 
+DELETE http://localhost:5000/product/delete/laptop/621252bf03f512394179d1b1
+Content-Type: application/json
+
+### 
+DELETE http://localhost:5000/product/delete/6214df189261dd0e9334da2a
+Content-Type: application/json

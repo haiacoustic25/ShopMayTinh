@@ -1,0 +1,14 @@
+.DeleteProduct{
+    padding: 50px;
+    background-color:#fff;
+    border-radius:3px;
+    text-align: center;
+}
+
+.DeleteProduct > div {
+    margin-bottom: 20px;
+}
+
+button {
+    margin-right: 10px;
+}

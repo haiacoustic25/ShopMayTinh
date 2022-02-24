@@ -1,0 +1,95 @@
+.navbar__icon--notification {
+  position: relative;
+}
+
+.notification__count {
+  width: 15px;
+  height: 15px;
+  font-size: 13px;
+  background-color: red;
+  display: flex;
+  align-items: center;
+  border-radius: 50%;
+  color: #fff;
+  text-align: center;
+  position: absolute;
+  top: -2px;
+  right: -7px;
+}
+
+.notification__count > span {
+  margin: 0 auto;
+}
+
+.notification {
+  position: absolute;
+  width: 400px;
+  background-color: #fff;
+  right: -100px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 10px;
+  display: none;
+
+  animation: moveRight ease-in-out 0.3s;
+
+  z-index: 1;
+}
+
+.notification__img {
+  text-align: center;
+}
+
+.notification img {
+  width: 30%;
+  padding: 20px;
+}
+
+.notification__all {
+  border-top: 1px solid rgb(218, 216, 216);
+  padding: 5px 10px;
+  text-align: center;
+}
+
+.notification__all a {
+  color: #333;
+}
+
+.notification::after {
+  content: " ";
+  width: 50px;
+  height: 30px;
+  background-color: transparent;
+  position: absolute;
+  top: -10px;
+  right: 180px;
+}
+
+.notification::before {
+  content: " ";
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid rgb(185, 182, 182);
+
+  position: absolute;
+  top: -10px;
+  right: 100px;
+}
+
+.navbar__icon--notification:hover .notification {
+  display: block;
+}
+
+@keyframes moveRight {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

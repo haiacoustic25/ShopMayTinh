@@ -1,0 +1,49 @@
+.header__navbar {
+  width: 100%;
+  /* position: fixed; */
+  z-index: 1;
+  background-color: #fff;
+}
+
+.navbar__img {
+  width: 200px;
+}
+
+.navbar__search--input {
+  border: 1px solid rgb(184, 181, 181);
+  border-radius: 15px;
+  width: 600px;
+  height: 35px;
+  overflow: hidden;
+  align-items: center;
+  display: flex;
+  position: relative;
+}
+
+.navbar__search--input > input {
+  border: none;
+  margin-left: 10px;
+  width: 100%;
+  outline: none;
+}
+
+.navbar__search--icon {
+  color: #38b6ff;
+  position: absolute;
+  top: 3px;
+  right: 5px;
+  cursor: pointer;
+}
+
+.navbar__icon {
+  margin-right: 10px;
+}
+
+.navbar__icon > div {
+  margin: 20px;
+  cursor: pointer;
+}
+
+.navbar__icon > div > div > img {
+  width: 20px;
+}
