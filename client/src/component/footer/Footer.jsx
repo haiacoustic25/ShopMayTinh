@@ -60,18 +60,18 @@ const Footer = () => {
             </ul>
             <ul className="footer__infor--list">
               <li>
-                <i className="fa-solid fa-mobile-screen-button"></i> Hotline:
-                032 864 1477
+                <i className="fa-brands fa-git"></i>
+                <a href="https://github.com/haiacoustic25/ShopMayTinh">
+                  https://github.com/haiacoustic25/
+                </a>
               </li>
               <li>
-                <i className="fa-brands fa-facebook"></i>
-                Facebook:
-                <a href="https://www.facebook.com/minhhai2502/">Minh Hải</a>
+                <i className="fa-solid fa-envelope"></i>
+                Gmail: haiacoustic25@gmail.com
               </li>
               <li>
-                <i className="fa-brands fa-instagram"></i>
-                Instagram:
-                <a href="https://www.instagram.com/minhhai2502/">minhhai2502</a>
+              <i className="fa-solid fa-building-columns"></i>
+                Trường đại học Công Nghiệp Hà Nội
               </li>
             </ul>
           </div>
