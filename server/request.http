@@ -25,15 +25,27 @@ POST http://localhost:5000/product/create/laptop
 Content-Type: application/json
 
 {   
-    "name":"laptop"
+    "CPU": "Intel Core i3",
+"RAM": "4 GB",
+"battery": "65W AC Adapter, Output: 19V DC, 3.42A, 65W, Input: 100~240V AC 50/60Hz universal",
+"color": "Đen",
+"descriptionsHTML": "<h3>Thiết kế tiện dụng, thanh lịch</h3>\n<p>Đây là chiếc laptop xoay gập 360 độ đầy ấn tượng, linh hoạt thay đổi lúc thì dùng như máy tính làm việc lúc thì gập lại thành một chiếc máy tính bảng gọn gàng, hoặc có dựng máy như một chiếc lều để xem phim với bạn bè. Độ bền của bản lề sau khi qua thử nghiệm đạt qua 20.000 chu kỳ mở và đóng cho bạn thỏa sức khám phá.</p>\n<p>Bản lề của máy cũng được cải tiến giúp tăng thêm độ nghiêng khoảng 3 độ cho bàn phím, giúp tư thế đánh máy nhập liệu của bạn trở nên thoải mái hơn. Bàn phím có layout quen thuộc, hành trình phím tốt khi gõ khá êm cùng với đèn nền đơn sắc sẽ hỗ trợ tốt cho bạn khi làm việc vào ban đêm. Ngoài ra, phím Enter được viền các cạnh màu vàng sáng lóa chắc chắn sẽ thu hút được cái nhìn của mọi người, tạo nên điểm nhấn độc đáo.</p>\n<p>Vỏ ngoài của chiếc laptop Asus Vivobook I5 được phối hợp hài hòa giữa chất liệu nhựa và kim loại vừa đem đến vẻ ngoài sang trọng vừa đảm bảo hiệu quả tản nhiệt, máy có kích thước vô cùng nhỏ gọn khi chỉ dày 18.7 mm trọng lượng vỏn vẹn 1.5 kg, bạn dễ dàng cất gọn vào balo và mang theo đi khắp mọi nơi.</p>\n<h3>Bảo mật an toàn và kết nối đa dạng</h3>\n<p>Đồng thời, laptop còn trang bị bảo mật vân tay cho phép bạn mở máy, đăng nhập vào ứng dụng cực nhanh chóng và không lo kẻ gian đánh cắp mật khẩu, nhờ đó những dữ liệu mật trong máy tính sẽ được bảo vệ an toàn.</p>\n<p>Và không thể thiếu đối với một chiếc laptop là các cổng kết nối dọc thân máy như USB 3.2 Thunderbolt 4, Type-C, HDMI, USB 2.0 và đầu đọc thẻ nhớ Micro SD giúp bạn dễ dàng kết nối với máy in, máy chiếu, chuột, chia sẻ dữ liệu, sạc pin cho điện thoại mà không cần phải gắn thêm các adapter chuyển đổi rườm rà.</p>\n<p>Bên cạnh cổng kết nối thì laptop còn tích hợp giao thức không dây Wi-Fi 6 AX201 với khả năng kết nối Internet mượt mà với tốc độ lên đến 10.000 Mbps, hoạt động tốt hơn ở các quán cà phê hay khu vực đông đúc có lưu lượng truy cập cao. Bluetooth v5.0 cho phạm vi kết nối ổn định khoảng 10 m.</p>\n<h3>Hiệu năng ổn định, phục vụ công việc tốt</h3>\n<p>Laptop Asus Vivobook I5 này được trang bị con chip Intel Core I5 Gen 11 hiện đại mang lại tốc độ xử lý cao với mức năng lượng tiêu thụ thấp với hiệu suất xử lý các tác vụ như word, excel, lướt web đến thiết kế, chỉnh ảnh trên Photoshop, Illustrator được nâng cao đáng kể trên con chip 4 lõi 8 luồng này với xung nhịp tối đa là  4.2 GHz nhờ Turbo Boost.</p>\n<p>Ngoài ra trên mẫu laptop core I5 thế hệ 11 này còn được trang bị bộ nhớ RAM 8 GB loại LPDDR4X (On board) thực hiện đa nhiệm mượt mà, bạn có thể thực hiện nhiều tác vụ cùng lúc như thiết kế Photoshop, nhập liệu Word, Excel, lướt web, nghe nhạc, ... mà không xảy ra các tình trạng giật lag hay đứng máy làm gián đoạn công việc của bạn với tốc độ bus RAM 4266 MHz.</p>\n<p>Card đồ họa tích hợp Intel Iris Xe Graphics cho khả năng xử lý đồ họa tốt hơn 2.7 lần trong các tác vụ thông thường và gấp 2 lần về khả năng xử lý game so với các thế hệ trước.</p>\n<p>Kết hợp cùng bộ nhớ là ổ cứng SSD NVMe PCIe cho tốc độ truy xuất dữ liệu nhanh chóng, mang đến cho bạn một không gian lưu trữ lớn, thời gian khởi động máy và vào ứng dụng nhanh chóng chưa tới 10 giây giúp bạn hoàn thành công việc nhanh nhất.</p>\n",
+"img": "https://firebasestorage.googleapis.com/v0/b/shopmaytinh-f4fce.appspot.com/o/product%2Flaptop%2FScreenshot%202022-02-27%20232210.png?alt=media&token=fe61b236-5805-467c-b1a5-41d3ed53a3b3",
+"name": "Laptop Asus VivoBook TP470EA-EC027T",
+"price": "16099000",
+"promotion": "10",
+"screenSize": "14 inch",
+"storage": "512GB SSD",
+"trademark": "Asus",
+"weight": "1.5"
 }
 
 ### 
-GET http://localhost:5000/product/post/laptop 
+GET http://localhost:5000/product/laptop 
 Content-Type: application/json
 
 ### 
-GET http://localhost:5000/product/post/mouse 
+GET http://localhost:5000/product/mouse 
 Content-Type: application/json
 
 ### 
@@ -98,3 +110,29 @@ Content-Type: application/json
 ### 
 DELETE http://localhost:5000/product/delete/6214df189261dd0e9334da2a
 Content-Type: application/json
+
+### 
+GET http://localhost:5000/product/laptop?_sort&type=-1
+Content-Type: application/json
+
+### 
+GET http://localhost:5000/product/laptop/621baa1a5c6da83fd2f71bf5
+Content-Type: application/json
+
+###
+POST http://localhost:5000/cart/create
+content-type: application/json
+
+{
+    "userId":"620a5b1b470f4eaa8b4a467d",
+    "products":{
+        "productId":"62207900db429db8160dd805",
+        "quantity":"1",
+        "onModel":"mouse"
+        }
+}
+
+###
+GET http://localhost:5000/cart/read?userId=620a4ee88eda8f253381dd05&model=laptop
+content-type: application/json
+

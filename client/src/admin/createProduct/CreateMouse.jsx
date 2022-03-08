@@ -5,16 +5,21 @@ import axios from "axios";
 import { useEffect } from "react";
 import { storage } from "../../firebase";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
+import MarkdownIt from "markdown-it";
+import MdEditor from "react-markdown-editor-lite";
+import "react-markdown-editor-lite/lib/index.css";
 
+const mdParser = new MarkdownIt();
 const CreateMouse = () => {
   const [mouse, setMouse] = useState({
     name: "",
     trademark: "",
     price: "",
     promotion: "",
+    connect: "",
     color: "",
     img: "",
-    descriptions: "",
+    descriptionsHTML: "",
   });
   const [previewImg, setPreviewImg] = useState();
   const [check, setCheck] = useState(false);
@@ -49,9 +54,10 @@ const CreateMouse = () => {
             trademark: "",
             price: "",
             promotion: "",
+            connect: "",
             color: "",
             img: "",
-            descriptions: "",
+            descriptionsHTML: "",
           });
         });
       }
@@ -61,11 +67,14 @@ const CreateMouse = () => {
   const onChange = (event) => {
     setMouse({ ...mouse, [event.target.name]: event.target.value });
   };
+  const handleEditorChange = ({ html, text }) => {
+    setMouse({ ...mouse, descriptionsHTML: html });
+  };
   const onSubmit = (event) => {
     event.preventDefault();
     setCheck(true);
-    const file = event.target[6].files[0];
-
+    const file = event.target[8].files[0];
+    // console.log(event.target[8])
     uploadFiles(file);
   };
 
@@ -88,11 +97,11 @@ const CreateMouse = () => {
     <Form noValidate className="mt-3" onSubmit={onSubmit}>
       <Row className="mb-3">
         <Form.Group as={Col} md="3" controlId="validationCustom01">
-          <Form.Label>Tên máy</Form.Label>
+          <Form.Label>Tên chuột</Form.Label>
           <Form.Control
             required
             type="text"
-            placeholder="Tên máy"
+            placeholder="Tên chuột"
             name="name"
             value={mouse.name}
             onChange={onChange}
@@ -100,14 +109,24 @@ const CreateMouse = () => {
         </Form.Group>
         <Form.Group as={Col} md="3" controlId="validationCustom02">
           <Form.Label>Hãng</Form.Label>
-          <Form.Control
+          <Form.Select
             required
-            type="text"
-            placeholder="Hãng"
+            className="d-block w-100 h-50"
             name="trademark"
             value={mouse.trademark}
             onChange={onChange}
-          />
+          >
+            <option>Chọn hãng ...</option>
+            <option>Logitech</option>
+            <option>Newmen</option>
+            <option>Microsoft</option>
+            <option>Asus</option>
+            <option>Razer</option>
+            <option>DAREU</option>
+            <option>MSI</option>
+            <option>Lenovo</option>
+            <option>GIGABYTE</option>
+          </Form.Select>
         </Form.Group>
         <Form.Group as={Col} md="3" controlId="validationCustom02">
           <Form.Label>Giá</Form.Label>
@@ -133,6 +152,20 @@ const CreateMouse = () => {
         </Form.Group>
       </Row>
       <Row className="mb-3">
+        <Form.Group as={Col} md="3" controlId="validationCustom02">
+          <Form.Label>Kết nối</Form.Label>
+          <Form.Select
+            required
+            className="d-block w-100 h-50"
+            name="connect"
+            value={mouse.connect}
+            onChange={onChange}
+          >
+            <option>Chọn hãng ...</option>
+            <option>Wired</option>
+            <option>Wireless</option>
+          </Form.Select>
+        </Form.Group>
         <Form.Group as={Col} md="4" controlId="validationCustom01">
           <Form.Label>Màu</Form.Label>
           <Form.Control
@@ -145,16 +178,11 @@ const CreateMouse = () => {
           />
         </Form.Group>
       </Row>
-      <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-        <Form.Label>Mô tả</Form.Label>
-        <Form.Control
-          as="textarea"
-          rows={3}
-          name="descriptions"
-          value={mouse.descriptions}
-          onChange={onChange}
-        />
-      </Form.Group>
+      <MdEditor
+        style={{ height: "500px" }}
+        renderHTML={(text) => mdParser.render(text)}
+        onChange={handleEditorChange}
+      />
       <Form.Group className="mb-3 d-flex" controlId="formBasicEmail">
         <Form.Control
           type="file"

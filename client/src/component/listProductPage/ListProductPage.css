@@ -1,0 +1,17 @@
+.listProductPage__sort > i {
+  color: #333;
+  padding: 10px;
+}
+
+.listProductPage__sort > span {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.listProductPage__sort > input {
+    margin: 0 10px;
+}
+
+.listProductPage__sort img {
+  width: 30px;
+}

@@ -13,14 +13,17 @@ class ProductController {
       price,
       promotion,
       color,
+      CPU,
       storage,
       RAM,
       battery,
       weight,
       img,
+      descriptionsHTML,
     } = req.body;
     // check fill in information
     if (
+      !CPU ||
       !name ||
       !screenSize ||
       !trademark ||
@@ -37,8 +40,24 @@ class ProductController {
         .status(200)
         .json({ success: false, message: "Missing information" });
     }
+    const newPrice = price - (price * promotion) / 100;
     try {
-      const newProduct = new Laptop(req.body);
+      const newProduct = new Laptop({
+        name,
+        trademark,
+        priceNew: newPrice,
+        screenSize,
+        price,
+        promotion,
+        color,
+        CPU,
+        storage,
+        RAM,
+        battery,
+        weight,
+        img,
+        descriptionsHTML,
+      });
       newProduct.save();
 
       res.json({
@@ -66,6 +85,7 @@ class ProductController {
       RAM,
       operatingSystem,
       img,
+      descriptionsHTML,
     } = req.body;
     // check fill in information
     if (
@@ -85,8 +105,24 @@ class ProductController {
         .status(200)
         .json({ success: false, message: "Missing information" });
     }
+
+    const newPrice = price - (price * promotion) / 100;
     try {
-      const newProduct = new PC(req.body);
+      const newProduct = new PC({
+        name,
+        trademark,
+        price,
+        promotion,
+        priceNew: newPrice,
+        color,
+        graphics,
+        storage,
+        CPU,
+        RAM,
+        operatingSystem,
+        img,
+        descriptionsHTML,
+      });
       newProduct.save();
 
       res.json({
@@ -99,18 +135,47 @@ class ProductController {
       res.status(500).json({ success: false, message: "Server error" });
     }
   }
-  // @POST product PC
-  // @desc product/create/PC
+  // @POST product mouse
+  // @desc product/create/mouse
   async createMouse(req, res) {
-    const { name, trademark, price, promotion, color, img } = req.body;
+    const {
+      name,
+      trademark,
+      price,
+      promotion,
+      connect,
+      color,
+      img,
+      priceNew,
+      descriptionsHTML,
+    } = req.body;
     // check fill in information
-    if (!name || !trademark || !promotion || !price || !color || !img) {
+    if (
+      !name ||
+      !trademark ||
+      !promotion ||
+      !price ||
+      !color ||
+      !img ||
+      !connect
+    ) {
       return res
         .status(200)
         .json({ success: false, message: "Missing information" });
     }
+    const newPrice = price - (price * promotion) / 100;
     try {
-      const newProduct = new Mouse(req.body);
+      const newProduct = new Mouse({
+        name,
+        trademark,
+        price,
+        promotion,
+        priceNew: newPrice,
+        color,
+        connect,
+        img,
+        descriptionsHTML,
+      });
       newProduct.save();
 
       res.json({
@@ -124,24 +189,34 @@ class ProductController {
     }
   }
 
-  // @router /post/laptop
-  // @desc GET product
-  async postLaptop(req, res) {
+  // @router /laptop/:id
+  // @desc GET find laptop by id
+  async findLaptop(req, res) {
     try {
-      const listProduct = await Laptop.find();
-      res.json({ success: true, listProduct });
+      const product = await Laptop.findById(req.params.id);
+      res.json({ success: true, product });
     } catch (error) {
       console.log(error);
       res.status(500).json({ success: false, message: "Server error" });
     }
   }
-
-  // @router /find/laptop
-  // @desc GET find one laptop
-  async findLaptop(req, res) {
+  // @router /PC/:id
+  // @desc GET find PC by id
+  async findPC(req, res) {
     try {
-      const laptop = await Laptop.findById(req.params.id);
-      res.json({ success: true, laptop });
+      const product = await PC.findById(req.params.id);
+      res.json({ success: true, product });
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({ success: false, message: "Server error" });
+    }
+  }
+  // @router /mouse/:id
+  // @desc GET find mouse by id
+  async findMouse(req, res) {
+    try {
+      const product = await Mouse.findById(req.params.id);
+      res.json({ success: true, product });
     } catch (error) {
       console.log(error);
       res.status(500).json({ success: false, message: "Server error" });
@@ -188,18 +263,27 @@ class ProductController {
     try {
       await Mouse.findByIdAndDelete(req.params.id);
       await Laptop.findByIdAndDelete(req.params.id);
+      await PC.findByIdAndDelete(req.params.id);
       res.json({ success: true });
     } catch (error) {
       console.log(error);
       res.status(500).json({ success: false, message: "Server error" });
     }
   }
-
-  // @router /post/PC
-  // @desc GET PC
-  async postPC(req, res) {
+  // @router /laptop
+  // @desc GET product
+  async getLaptop(req, res) {
     try {
-      const listProduct = await PC.find();
+      const query = { ...req.query };
+      let listProduct = [];
+
+      // sort
+      if (query.hasOwnProperty("sort")) {
+        delete query.sort;
+        listProduct = await Laptop.find({ ...query }).sort({
+          priceNew: req.query.sort,
+        });
+      } else listProduct = await Laptop.find({ ...query });
       res.json({ success: true, listProduct });
     } catch (error) {
       console.log(error);
@@ -207,11 +291,41 @@ class ProductController {
     }
   }
 
-  // @router /post/mouse
-  // @desc GET mouse
-  async postMouse(req, res) {
+  // @router /PC
+  // @desc GET PC
+  async getPC(req, res) {
     try {
-      const listProduct = await Mouse.find();
+      const query = { ...req.query };
+      let listProduct = [];
+
+      // sort
+      if (query.hasOwnProperty("sort")) {
+        delete query.sort;
+        listProduct = await PC.find({ ...query }).sort({
+          priceNew: req.query.sort,
+        });
+      } else listProduct = await PC.find({ ...query });
+      res.json({ success: true, listProduct });
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({ success: false, message: "Server error" });
+    }
+  }
+
+  // @router /mouse
+  // @desc GET mouse
+  async getMouse(req, res) {
+    try {
+      let listProduct = [];
+      const query = { ...req.query };
+
+      // sort
+      if (query.hasOwnProperty("sort")) {
+        delete query.sort;
+        listProduct = await Mouse.find({ ...query }).sort({
+          priceNew: req.query.sort,
+        });
+      } else listProduct = await Mouse.find({ ...query });
       res.json({ success: true, listProduct });
     } catch (error) {
       console.log(error);

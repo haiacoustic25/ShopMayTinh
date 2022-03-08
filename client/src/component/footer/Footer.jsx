@@ -1,11 +1,10 @@
 import React from "react";
 import "./Footer.css";
-import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
     <div className="footer d-flex">
-      <div className="w-75 ml-5 mt-4 mr-5">
+      <div className="w-75 ml-5 mt-4 mr-5 ">
         <h3 className="footer__title">Tự tin mua sắm cùng Minh Hải</h3>
         <div className=" note d-flex">
           <div className="footer__note">

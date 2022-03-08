@@ -1,0 +1,51 @@
+.productDetail__aside {
+  border-radius: 10px;
+  width: 400px;
+  box-shadow: 2px 2px 4px 6px rgba(0, 0, 0, 0.05);
+  background: #fff;
+  padding: 20px 20px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 10px;
+}
+
+.aside__trademark {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: #8c91a1;
+  margin: 10px 0;
+}
+
+.aside__newPrice {
+  color: #fe3464;
+  font-weight: 700;
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.aside__oldPrice {
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 29px;
+  color: #9e9c9c;
+  text-decoration: line-through;
+}
+
+.aside__promotion {
+  color: #fe3464;
+  font-weight: 700;
+  font-size: 22px;
+  margin-left: 10px;
+}
+
+.aside__color {
+  margin: 10px 0;
+}
+
+.aside__color > span {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 26px;
+  color: #333;
+}

@@ -14,14 +14,14 @@ const ListLaptop = (props) => {
     swipeToSlide: true,
   };
 
-  const { data } = props;
+  const { data, slug } = props;
 
   return (
     <Slider {...settings}>
       {data.length > 0 &&
         data.map((product, index) => (
           <div key={index}>
-            <InforProduct product={product} />
+            <InforProduct product={product} slug={slug} />
           </div>
         ))}
     </Slider>

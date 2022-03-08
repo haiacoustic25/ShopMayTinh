@@ -4,6 +4,9 @@
   overflow: hidden;
   box-shadow: 4px 4px 4px 6px rgba(0, 0, 0, 0.1);
   margin: 30px 10px;
+  /* width: 100%; */
+  width: 1280px;
+  margin: 50px auto;
 }
 
 .footer__title {

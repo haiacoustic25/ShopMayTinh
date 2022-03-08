@@ -28,9 +28,12 @@ const UserSchema = new Schema({
     required: false,
   },
   admin: {
-    type:"boolean",
+    type: "boolean",
   },
-  
+  cart: {
+    type: Schema.Types.ObjectId,
+    ref: "cart",
+  },
 });
 
-module.exports = mongoose.model("user", UserSchema);
+module.exports = mongoose.model("User", UserSchema);

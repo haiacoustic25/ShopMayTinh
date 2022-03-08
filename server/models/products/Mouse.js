@@ -9,12 +9,25 @@ const MouseSchema = new Schema({
   trademark: {
     type: "string",
     required: true,
+    enum: [
+      "Logitech",
+      "Newmen",
+      "Microsoft",
+      "Asus",
+      "DAREU",
+      "Razer",
+      "MSI",
+      "Lenovo",
+      "GIGABYTE",
+    ],
   },
   price: { type: "number", required: true },
   promotion: {
     type: "number",
     required: true,
   },
+  priceNew: { type: "number" },
+  connect: { type: "string", required: true, enum: ["Wired", "Wireless"] },
   color: {
     type: "string",
   },
@@ -22,7 +35,7 @@ const MouseSchema = new Schema({
     type: "string",
     required: false,
   },
-  descriptions: {
+  descriptionsHTML: {
     type: "String",
   },
   createdAt: {

@@ -1,4 +1,8 @@
-import { CALL_API_LAPTOP, CALL_API_PC, CALL_API_MOUSE } from "./constants";
+import {
+  CALL_API_LAPTOP,
+  CALL_API_PC,
+  CALL_API_MOUSE,
+} from "./constants";
 
 const reducer = (state, action) => {
   switch (action.type) {

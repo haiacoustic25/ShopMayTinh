@@ -1,15 +1,18 @@
 import React from "react";
 import "./menu.css";
+import { Link } from "react-router-dom";
 
 const Menu = () => {
   return (
     <ul className="menu d-flex ">
       <li className="menu__list">
-        <img
-          src="https://firebasestorage.googleapis.com/v0/b/shopmaytinh-f4fce.appspot.com/o/icon%2Flaptop.png?alt=media&token=70473b5f-f5d3-4ddd-bda8-2b48ec355bca"
-          alt=""
-        />
-        <span>LapTop</span>
+        <Link to="/laptop">
+          <img
+            src="https://firebasestorage.googleapis.com/v0/b/shopmaytinh-f4fce.appspot.com/o/icon%2Flaptop.png?alt=media&token=70473b5f-f5d3-4ddd-bda8-2b48ec355bca"
+            alt=""
+          />
+          <span>LapTop</span>
+        </Link>
         <ul className="menu__list--child">
           <li>Dell</li>
           <li>HP</li>
@@ -20,11 +23,13 @@ const Menu = () => {
         </ul>
       </li>
       <li className="menu__list">
-        <img
-          src="https://firebasestorage.googleapis.com/v0/b/shopmaytinh-f4fce.appspot.com/o/icon%2Fcomputer.png?alt=media&token=300e22e1-7f95-4430-86db-a87161ec1c47"
-          alt=""
-        />
-        <span>PC</span>
+        <Link to="/PC">
+          <img
+            src="https://firebasestorage.googleapis.com/v0/b/shopmaytinh-f4fce.appspot.com/o/icon%2Fcomputer.png?alt=media&token=300e22e1-7f95-4430-86db-a87161ec1c47"
+            alt=""
+          />
+          <span>PC</span>
+        </Link>
         <ul className="menu__list--child">
           <li>Dell</li>
           <li>HP</li>

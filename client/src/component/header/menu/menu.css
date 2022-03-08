@@ -1,7 +1,7 @@
 .menu {
   list-style: none;
-  /* padding: 0 30px; */
-  background-color: #39b6ff;
+  margin: auto;
+  width: 1280px;
 }
 
 .menu__list {
@@ -12,7 +12,7 @@
   cursor: pointer;
   position: relative;
 }
-.menu__list > img {
+.menu__list img {
   width: 25px;
   margin-right: 8px;
 }

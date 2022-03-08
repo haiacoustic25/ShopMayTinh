@@ -1,8 +1,8 @@
 .inforProduct {
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.05);
   margin: 10px;
+  cursor: pointer;
 }
 
 .inforProduct__img {
@@ -10,7 +10,7 @@
   height: 200px;
 }
 
-.inforProduct__img:hover {
+.inforProduct:hover .inforProduct__img {
   transform: scale(1.1);
 }
 
@@ -24,6 +24,7 @@
   text-overflow: ellipsis;
   -webkit-box-orient: vertical;
   margin-bottom: 5px !important;
+  height: 52px;
 }
 .inforProduct__price--new {
   color: red;
@@ -45,4 +46,9 @@
 .inforProduct__promotion {
   color: #333;
   font-weight: border;
+}
+
+.inforProduct__star > i {
+  color: rgb(247, 247, 85);
+  margin-right: 5px;
 }

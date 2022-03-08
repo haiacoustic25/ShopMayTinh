@@ -21,7 +21,7 @@ const AdminPage = () => {
   };
 
   return (
-    <div>
+    <div className="body">
       <div className="mt-2 d-flex justify-content-between">
         <div>
           <Link to="/">

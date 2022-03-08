@@ -1,0 +1,60 @@
+.menuProduct img {
+  width: 30px;
+  margin-right: 10px;
+}
+.menuProduct {
+  width: 300px;
+}
+.menuProduct__filter {
+  padding: 10px 0;
+  border-top: 1px solid #e1e3e9;
+  border-bottom: 1px solid #e1e3e9;
+}
+
+.menuProduct__filter--name:hover {
+  color: #2339ff;
+  cursor: pointer;
+}
+.menuProduct__filter--name:hover i {
+  color: #2339ff;
+  cursor: pointer;
+}
+
+.menuProduct__filter--name > i {
+  color: #e1e3e9;
+  font-size: 20px;
+}
+.menuProduct__filter--list {
+  width: 100%;
+  word-wrap: break-word;
+  height: auto;
+}
+
+.menuProduct__filter--item {
+  padding: 8px 10px;
+  background-color: #fff;
+  margin: 5px 10px;
+  border-radius: 5px;
+  display: inline-block;
+  border: 1px solid rgb(219, 216, 216);
+}
+
+.menuProduct__filter--item:hover {
+  cursor: pointer;
+  background-color: #ecf0f4;
+}
+
+.menuProduct__item--plus {
+  display: none;
+}
+.menuProduct__item--minus {
+  display: none;
+}
+
+.menuProduct__item--plus.active {
+  display: inline-block;
+}
+.menuProduct__item--minus.active {
+  display: inline-block;
+}
+

@@ -2,7 +2,35 @@
   margin: 0;
   padding: 0;
 }
-.App {
+
+.body {
   width: 1280px;
   margin: auto;
+}
+
+a {
+  color: #333;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.App {
+  position: relative;
+}
+
+.rollTheTop {
+  position: fixed;
+  width: 50px;
+  background-color: #fff;
+  bottom: 150px;
+  right: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #4286f5;
+}
+
+html {
+  scroll-behavior: smooth;
 }
