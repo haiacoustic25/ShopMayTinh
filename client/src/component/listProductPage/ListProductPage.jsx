@@ -22,13 +22,13 @@ const ListProductPage = (props) => {
 
   const handleNextPage = () => {
     setCurrentPage(currentPage + 1);
+    window.scrollTo(0, 1300);
   };
   const handleComeBackPage = () => {
     if (currentPage > 1) setCurrentPage(currentPage - 1);
+    window.scrollTo(0, 1500);
   };
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [currentPage]);
+
   return (
     <div className="w-75">
       <div className="mr-5">

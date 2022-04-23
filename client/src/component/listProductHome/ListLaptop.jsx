@@ -21,7 +21,7 @@ const ListLaptop = (props) => {
       {data.length > 0 &&
         data.map((product, index) => (
           <div key={index}>
-            <InforProduct product={product} slug={slug} />
+            <InforProduct product={product} />
           </div>
         ))}
     </Slider>

@@ -7,7 +7,7 @@ class CartController {
   async createCart(req, res) {
     const {
       userId,
-      products: { productId, quantity, onModel },
+      products: { productId, quantity },
     } = req.body;
 
     try {
@@ -27,7 +27,6 @@ class CartController {
         });
       }
       let itemIndex = cart.products.findIndex((p) => p.productId == productId);
-      console.log(cart);
       if (itemIndex > -1) {
         return res.json({
           success: false,
@@ -52,12 +51,11 @@ class CartController {
   // @router /cart/read
   // @desc get cart
   async readCart(req, res) {
-    const { userId, model } = req.query;
+    const { userId } = req.query;
     try {
-      const cart = await Cart.findOne({ userId }).populate({
-        path: "products.productId",
-        model: model,
-      });
+      const cart = await Cart.findOne({ userId }).populate(
+        "products.productId"
+      );
       res.json({ success: true, cart });
     } catch (error) {
       console.log(error);

@@ -9,7 +9,7 @@ const ListProduct = () => {
   return (
     <>
       <div className="listProduct">
-        <div className="listProduct__title d-flex justify-content-between align-items-center">
+        <div className="listProduct__title">
           <h4>HÀNG MỚI</h4>
         </div>
         <ListLaptop data={state.laptopData} slug={"laptop"} />

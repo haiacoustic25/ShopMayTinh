@@ -7,16 +7,21 @@ import UserContext from "./Context/UserContext";
 import CartProvider from "./Context/cartContext/CartProvider";
 import ProductProvider from "./Context/productContext/ProductContext";
 
+import { Provider } from "react-redux";
+import store from "./Redux/store";
+
 ReactDOM.render(
-  <React.StrictMode>
-    <CartProvider>
-      <ProductProvider>
-        <UserContext>
-          <App />
-        </UserContext>
-      </ProductProvider>
-    </CartProvider>
-  </React.StrictMode>,
+  <Provider store={store}>
+    <React.StrictMode>
+      <CartProvider>
+        <ProductProvider>
+          <UserContext>
+            <App />
+          </UserContext>
+        </ProductProvider>
+      </CartProvider>
+    </React.StrictMode>
+  </Provider>,
   document.getElementById("root")
 );
 

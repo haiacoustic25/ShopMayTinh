@@ -8,6 +8,7 @@ const CartSchema = new Schema(
       {
         productId: {
           type: Schema.Types.ObjectId,
+          ref: "laptop",
           require: true,
         },
         quantity: {

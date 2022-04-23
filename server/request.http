@@ -127,12 +127,11 @@ content-type: application/json
     "userId":"620a5b1b470f4eaa8b4a467d",
     "products":{
         "productId":"62207900db429db8160dd805",
-        "quantity":"1",
-        "onModel":"mouse"
+        "quantity":"1"
         }
 }
 
 ###
-GET http://localhost:5000/cart/read?userId=620a4ee88eda8f253381dd05&model=laptop
+GET http://localhost:5000/cart/read?userId=620a5b1b470f4eaa8b4a467d
 content-type: application/json
 
