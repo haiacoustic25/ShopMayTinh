@@ -32,8 +32,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/admin" element={<AdminPage />} />
-          <Route path="/:slug" element={<ProductPage />} />
-          <Route path="/:slug/:id" element={<ProductDetailPage />} />
+          <Route path="/:id" element={<ProductDetailPage />} />
         </Routes>
       </BrowserRouter>
       {scrollPosition >= 100 && (

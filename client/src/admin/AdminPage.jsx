@@ -52,8 +52,6 @@ const AdminPage = () => {
           >
             <option>Chọn sản phẩm</option>
             <option value="laptop">Laptop</option>
-            <option value="PC">PC</option>
-            <option value="mouse">Mouse</option>
           </Form.Select>
           <Button variant="primary" onClick={handleClick}>
             Submit

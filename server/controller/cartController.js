@@ -1,7 +1,6 @@
 const Cart = require("../models/Cart");
-const Laptop = require("../models/products/Laptop");
-const PC = require("../models/products/PC");
-const Mouse = require("../models/products/Mouse");
+const Laptop = require("../models/Laptop");
+
 class CartController {
   // @Router /cart/create
   // @desc create cart

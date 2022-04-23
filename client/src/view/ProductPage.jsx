@@ -13,13 +13,12 @@ import axios from "axios";
 
 const ProductPage = () => {
   const [data, setData] = useState([]);
-  const { slug } = useParams();
   const [query, setQuery] = useState({});
 
   useEffect(() => {
     window.scrollTo(0, 0);
     const callAPI = async () => {
-      const res = await axios.get(`http://localhost:5000/product/${slug}`, {
+      const res = await axios.get(`http://localhost:5000/product/laptop`, {
         params: query,
       });
 
@@ -32,7 +31,7 @@ const ProductPage = () => {
 
   useEffect(() => {
     setQuery({});
-  }, [slug]);
+  }, []);
   const handleFilter = (filter) => {
     setQuery({ ...query, ...filter });
   };
@@ -46,52 +45,20 @@ const ProductPage = () => {
 
   return (
     <div>
-      <Header />
       <div className="body">
-        {slug === "laptop" && (
-          <div>
-            <h3>Tất cả lap top</h3>
-            <div className="d-flex">
-              <MenuProduct data={filterLaptop} handleFilter={handleFilter} />
-              <ListProductPage
-                data={data}
-                handleFilter={handleFilter}
-                query={query}
-                handleDeleteQuery={handleDeleteQuery}
-              />
-            </div>
+        <div>
+          <h3>Tất cả lap top</h3>
+          <div className="d-flex">
+            <MenuProduct data={filterLaptop} handleFilter={handleFilter} />
+            <ListProductPage
+              data={data}
+              handleFilter={handleFilter}
+              query={query}
+              handleDeleteQuery={handleDeleteQuery}
+            />
           </div>
-        )}
-        {slug === "PC" && (
-          <div>
-            <h3>Tất cả PC</h3>
-            <div className="d-flex">
-              <MenuProduct data={filterPC} handleFilter={handleFilter} />
-              <ListProductPage
-                data={data}
-                handleFilter={handleFilter}
-                query={query}
-                handleDeleteQuery={handleDeleteQuery}
-              />
-            </div>
-          </div>
-        )}
-        {slug === "mouse" && (
-          <div>
-            <h3>Tất cả PC</h3>
-            <div className="d-flex">
-              <MenuProduct data={filterMouse} handleFilter={handleFilter} />
-              <ListProductPage
-                data={data}
-                handleFilter={handleFilter}
-                query={query}
-                handleDeleteQuery={handleDeleteQuery}
-              />
-            </div>
-          </div>
-        )}
+        </div>
       </div>
-      <Footer />
     </div>
   );
 };

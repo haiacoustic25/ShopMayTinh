@@ -3,6 +3,7 @@ import Header from "../component/header/Header";
 import Slider from "../component/slider/SliderMain";
 import ListProduct from "../component/listProductHome/ListProduct";
 import Footer from "../component/footer/Footer";
+import ProductPage from "./ProductPage";
 import {
   requestLaptop,
   requestPC,
@@ -23,6 +24,7 @@ const HomePage = () => {
       <div className="body">
         <Slider />
         <ListProduct />
+        <ProductPage />
       </div>
       <Footer />
     </>

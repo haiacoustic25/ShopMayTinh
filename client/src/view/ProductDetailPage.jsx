@@ -10,21 +10,21 @@ import { Account } from "../Context/UserContext";
 const ProductDetailPage = () => {
   const { checkAccount } = useContext(Account);
 
-  const { id, slug } = useParams();
+  const { id } = useParams();
   const [data, setData] = useState({});
   const [addToCart, setAddToCart] = useState(false);
 
   useEffect(() => {
     const getData = async () => {
       const res = await axios.get(
-        `http://localhost:5000/product/${slug}/${id}`
+        `http://localhost:5000/product/${id}`
       );
       if (res.data.success) {
         setData(res.data.product);
       }
     };
     getData();
-  }, [slug, id]);
+  }, [id]);
   useEffect(() => {
     const createCart = async () => {
       if (checkAccount && addToCart) {
@@ -50,7 +50,7 @@ const ProductDetailPage = () => {
       <div className="body">
         <div className="row position-relative">
           <div className="col-sm-8">
-            <ProductDetailMain data={data} slug={slug} />
+            <ProductDetailMain data={data} />
           </div>
           <div className="col-sm-4">
             <ProductDetailAside data={data} handleAddToCart={handleAddToCart} checkAccount={checkAccount} />
