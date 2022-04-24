@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 import "./MenuProduct.css";
 import MenuItem from "./MenuItem";
 const MenuProduct = (props) => {

@@ -1,21 +1,15 @@
 import React, { useEffect, useContext } from "react";
 import "./cart.css";
 import { Link } from "react-router-dom";
-import { requestCart } from "../../../../Context/cartContext/callAPI";
-import { CartContext } from "../../../../Context/cartContext/CartProvider";
 import { Account } from "../../../../Context/UserContext";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllCartRedux } from "../../../../Redux/Action/action";
 
 const Cart = () => {
-  // const { state, dispatch } = useContext(CartContext);
   const { checkAccount } = useContext(Account);
   const state = useSelector((state) => state.cart.listCart);
   const dispatch = useDispatch();
   useEffect(() => {
-    // if (checkAccount.isAuth) {
-    //   requestCart(dispatch, checkAccount.user._id);
-    // }
     if (checkAccount.isAuth) {
       dispatch(fetchAllCartRedux(checkAccount.user._id));
     }
@@ -58,7 +52,10 @@ const Cart = () => {
                     {item.productId.name}
                   </div>
                   <div className="cart__product--infor-price">
-                    {`Giá tiền: ${item.productId.priceNew.toLocaleString()} đ`}
+                    {`Giá tiền: ${(
+                      item.productId.priceNew -
+                      (item.productId.priceNew % 1000)
+                    ).toLocaleString()} đ`}
                   </div>
                   <div className="cart__product--infor-quantity">
                     Số lượng: {item.quantity}

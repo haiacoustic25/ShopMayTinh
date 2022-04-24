@@ -6,7 +6,7 @@ const Menu = () => {
   return (
     <ul className="menu d-flex ">
       <li className="menu__list">
-        <Link to="/laptop">
+        <Link to="/">
           <img
             src="https://firebasestorage.googleapis.com/v0/b/shopmaytinh-f4fce.appspot.com/o/icon%2Flaptop.png?alt=media&token=70473b5f-f5d3-4ddd-bda8-2b48ec355bca"
             alt=""
@@ -23,7 +23,7 @@ const Menu = () => {
         </ul>
       </li>
       <li className="menu__list">
-        <Link to="/PC">
+        <Link to="/">
           <img
             src="https://firebasestorage.googleapis.com/v0/b/shopmaytinh-f4fce.appspot.com/o/icon%2Fcomputer.png?alt=media&token=300e22e1-7f95-4430-86db-a87161ec1c47"
             alt=""

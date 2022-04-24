@@ -1,17 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./notification.css";
 import { Link } from "react-router-dom";
+import { Account } from "../../../../Context/UserContext";
 
 const Notification = () => {
+  const { checkAccount } = useContext(Account);
   return (
     <div className="navbar__icon--notification">
       <img
         src="https://firebasestorage.googleapis.com/v0/b/shopmaytinh-f4fce.appspot.com/o/icon%2Fbell.png?alt=media&token=217d0930-ee8c-41d9-866d-0c588ec89cb9"
         alt=""
       />
-      <div className="notification__count">
-        <span>0</span>
-      </div>
+      {checkAccount.isAuth && (
+        <div className="notification__count">
+          <span>0</span>
+        </div>
+      )}
       <div className="notification">
         <div className="notification__img">
           <img

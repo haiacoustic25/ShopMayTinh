@@ -87,6 +87,10 @@
   margin-bottom: 10px;
 }
 
+.cart__product:hover {
+  color: #38b6ff;
+}
+
 .cart__product:last-child {
   margin-bottom: 10px;
 }
