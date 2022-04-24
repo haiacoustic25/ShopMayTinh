@@ -132,6 +132,14 @@ content-type: application/json
 }
 
 ###
-GET http://localhost:5000/cart/read?userId=620a5b1b470f4eaa8b4a467d
+GET http://localhost:5000/cart/read?userId=620d20de6a5399629539b492
 content-type: application/json
 
+
+###
+DELETE http://localhost:5000/cart/delete?userId=620d20de6a5399629539b492
+content-type: application/json
+
+{
+    "productId":"621bac44e2806d7d9aacef52"
+}

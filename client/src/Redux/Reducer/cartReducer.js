@@ -5,10 +5,14 @@ import {
   FETCH_CART_ERROR,
   FETCH_CART_REQUEST,
   FETCH_CART_SUCCESS,
+  DELETE_CART_ERROR,
+  DELETE_CART_REQUEST,
+  DELETE_CART_SUCCESS,
 } from "../Action/type";
 
 const INNITAL_SATE = {
   listCart: [],
+  isDelete:false
 };
 
 const cartReducer = (state = INNITAL_SATE, action) => {
@@ -37,8 +41,6 @@ const cartReducer = (state = INNITAL_SATE, action) => {
       };
     }
     case FETCH_CART_SUCCESS: {
-      //   console.log("FETCH_CART_SUCCESS:", action);
-      //   console.log(action.payload.p);
       return {
         ...state,
         listCart: action.payload.products,
@@ -48,6 +50,26 @@ const cartReducer = (state = INNITAL_SATE, action) => {
       return {
         ...state,
       };
+    }
+
+    // delete product in cart
+    case DELETE_CART_REQUEST:{
+      return {
+        ...state,
+        isDelete:false
+      }
+    }
+    case DELETE_CART_SUCCESS:{
+      return {
+        ...state,
+        isDelete:true
+      }
+    }
+    case DELETE_CART_ERROR:{
+      return {
+        ...state,
+        isDelete:false
+      }
     }
 
     default: {

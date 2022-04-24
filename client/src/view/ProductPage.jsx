@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from "react";
 import ListProductPage from "../component/listProductPage/ListProductPage";
 import MenuProduct from "../component/menuProduct/MenuProduct";
-import {
-  filterLaptop,
-} from "../component/menuProduct/constants";
+import { filterLaptop } from "../component/menuProduct/constants";
 import axios from "axios";
 
 const ProductPage = () => {
   const [data, setData] = useState([]);
   const [query, setQuery] = useState({});
-
+ 
   useEffect(() => {
     const callAPI = async () => {
       const res = await axios.get(`http://localhost:5000/product/laptop`, {

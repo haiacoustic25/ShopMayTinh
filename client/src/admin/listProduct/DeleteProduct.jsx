@@ -4,17 +4,12 @@ import { Button } from "react-bootstrap";
 import axios from "axios";
 
 const DeleteProduct = (props) => {
-  const { inforLaptop, deleteProduct, setCheck, inforMouse, inforPC } = props;
+  const { inforLaptop, deleteProduct, setCheck } = props;
   const handleClick = async () => {
     let link = "";
-    if (inforMouse) {
-      link = inforMouse._id;
-    }
+
     if (inforLaptop) {
       link = inforLaptop._id;
-    }
-    if (inforPC) {
-      link = inforPC._id;
     }
     const res = await axios.delete(
       `http://localhost:5000/product/delete/${link}`

@@ -7,6 +7,7 @@ import AdminPage from "./admin/AdminPage";
 import ProductPage from "./view/ProductPage";
 import { useEffect, useState } from "react";
 import ProductDetailPage from "./view/ProductDetailPage";
+import CartPage from "./view/CartPage";
 
 function App() {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -33,6 +34,7 @@ function App() {
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/admin" element={<AdminPage />} />
           <Route path="/:id" element={<ProductDetailPage />} />
+          <Route path="/cart" element={<CartPage />} />
         </Routes>
       </BrowserRouter>
       {scrollPosition >= 100 && (

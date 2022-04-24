@@ -62,6 +62,28 @@ class CartController {
       res.status(500).json({ success: false, message: "Server error" });
     }
   }
+
+  // @router /cart/delete
+  // @desc delete product in cart
+  async deleteCart(req, res) {
+    const { userId, productId } = req.query;
+
+    try {
+      const cart = await Cart.findOne({ userId }).populate(
+        "products.productId"
+      );
+      // console.log(cart.products);
+      for (let i = 0; i < cart.products.length; i++) {
+        if (cart.products[i].productId._id == productId)
+          cart.products.splice(i, 1);
+      }
+      cart.save();
+      res.json({ success: true });
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({ success: false, message: "Server error" });
+    }
+  }
 }
 
 module.exports = new CartController();

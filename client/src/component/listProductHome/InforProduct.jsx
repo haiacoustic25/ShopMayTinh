@@ -16,7 +16,7 @@ const InforProduct = (props) => {
         <Card.Body>
           <Card.Title className="inforProduct__name">{product.name}</Card.Title>
           <Card.Text className="inforProduct__price--new">
-            {product.priceNew.toLocaleString()} ₫
+            {(product.priceNew - (product.priceNew % 1000)).toLocaleString()} ₫
           </Card.Text>
           <Card.Text className="inforProduct__price--old  d-flex">
             {product.promotion > 0 ? (

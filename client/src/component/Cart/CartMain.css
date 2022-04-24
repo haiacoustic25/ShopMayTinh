@@ -1,0 +1,41 @@
+.cartPage__img {
+  width: 150px;
+}
+
+.cartPage__name {
+  color: #38b6ff !important;
+}
+
+.cartPage__name > span {
+  display: block;
+  padding: 10px;
+}
+.cartPage__name > span:hover {
+  cursor: pointer;
+}
+
+.cartPage__quantity > span {
+  margin: 0 10px;
+}
+
+.cartPage__total {
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 31px;
+}
+
+.cartPage__btn > button {
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: #38b6ff !important;
+  border: none;
+}
+
+.cartPage__btn > button:first-child {
+  margin-right: 0;
+}
+
+table {
+  background-color: #fff !important;
+}

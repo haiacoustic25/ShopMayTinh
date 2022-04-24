@@ -33,16 +33,14 @@ const Cart = () => {
       )}
 
       <div className="cart">
-        {checkAccount.isAuth ||
-          (!checkAccount.isAuth && state && state.length === 0 && (
-            <div className="cart__img">
-              <img
-                src="https://firebasestorage.googleapis.com/v0/b/shopmaytinh-f4fce.appspot.com/o/empty-cart.png?alt=media&token=7addad2f-52ac-4817-9e03-648e45ea23d2"
-                alt=""
-              />
-            </div>
-          ))}
-
+        {!checkAccount.isAuth && state && (
+          <div className="cart__img">
+            <img
+              src="https://firebasestorage.googleapis.com/v0/b/shopmaytinh-f4fce.appspot.com/o/empty-cart.png?alt=media&token=7addad2f-52ac-4817-9e03-648e45ea23d2"
+              alt=""
+            />
+          </div>
+        )}
         {!checkAccount.isAuth ||
           (state &&
             state.length !== 0 &&
@@ -69,7 +67,9 @@ const Cart = () => {
               </div>
             )))}
         <div className="cart_all">
-          <Link to="/cart">Xem tất cả </Link>
+          <Link to={!checkAccount.isAuth ? "/login" : "/cart"}>
+            Xem tất cả{" "}
+          </Link>
         </div>
       </div>
     </div>
