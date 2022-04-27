@@ -14,19 +14,6 @@ export const filterLaptop = [
     filter: "trademark",
   },
   {
-    title: "Khoảng giá",
-    list: [
-      "Trên 50 triệu",
-      "40 - 50 triệu",
-      "30 - 40 triệu",
-      "20 - 30 triệu",
-      "15 - 20 triệu",
-      "10 - 15 triệu",
-      "Dưới 10 triệu",
-    ],
-    filter: "price",
-  },
-  {
     title: "RAM",
     list: [
       "4 GB",

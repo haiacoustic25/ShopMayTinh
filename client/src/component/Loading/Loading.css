@@ -1,0 +1,64 @@
+.loadingPage {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+.box {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: conic-gradient(
+    #3a86ff,
+    transparent,
+    transparent,
+    transparent,
+    transparent
+  );
+  position: relative;
+  display: grid;
+  place-items: center;
+  animation: loader 0.7s linear infinite;
+}
+.box::before,
+.box::after {
+  content: "";
+  position: absolute;
+}
+.box::before {
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+  background: #ecf0f4;
+}
+.box::after {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 5px;
+  height: 5px;
+  background: #3a86ff;
+  border-radius: 50%;
+}
+@keyframes loader {
+  0% {
+    transform: rotate(0);
+    background: conic-gradient(
+      #3a86ff,
+      transparent,
+      transparent,
+      transparent,
+      transparent
+    );
+  }
+  25% {
+    background: conic-gradient(#ffba00, transparent, transparent, transparent);
+  }
+  50% {
+    background: conic-gradient(#c9184a, transparent, transparent);
+  }
+  100% {
+    transform: rotate(-360deg);
+    background: conic-gradient(#480ca8, transparent, transparent);
+  }
+}

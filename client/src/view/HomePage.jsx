@@ -6,12 +6,17 @@ import Footer from "../component/footer/Footer";
 import ProductPage from "./ProductPage";
 import { requestLaptop } from "../Context/productContext/callAPI";
 import { ProductContext } from "../Context/productContext/ProductContext";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
+import Loading from "../component/Loading/Loading";
 const HomePage = () => {
   const { dispatch } = useContext(ProductContext);
+  const [isDisplay, setIsDisplay] = useState(false);
   useEffect(() => {
-    requestLaptop(dispatch);
-  }, []);
+    setTimeout(() => {
+      requestLaptop(dispatch);
+      setIsDisplay(true);
+    }, 2000);
+  }, [isDisplay]);
   return (
     <>
       <Header />
@@ -23,8 +28,10 @@ const HomePage = () => {
           alt=""
           className="w-100 mt-3 mb-4"
         />
-        <ProductPage />
+
+        {isDisplay ? <ProductPage /> : <Loading />}
       </div>
+
       <Footer />
     </>
   );

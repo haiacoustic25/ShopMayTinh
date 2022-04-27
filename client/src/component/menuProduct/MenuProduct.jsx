@@ -6,8 +6,7 @@ const MenuProduct = (props) => {
   const onClick = (value) => {
     handleFilter(value);
   };
-  
-  
+
   return (
     <div className="menuProduct mr-5">
       <div className="d-flex align-items-center mb-2">
@@ -20,12 +19,7 @@ const MenuProduct = (props) => {
       </div>
       <div>
         {data.map((item, index) => (
-          <MenuItem
-            data={item}
-            handleClick={onClick}
-          
-            key={index}
-          />
+          <MenuItem data={item} handleClick={onClick} key={index} />
         ))}
       </div>
     </div>

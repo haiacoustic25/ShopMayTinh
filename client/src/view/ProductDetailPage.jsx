@@ -8,6 +8,7 @@ import axios from "axios";
 import { Account } from "../Context/UserContext";
 import { useDispatch, useSelector } from "react-redux";
 import { createNewCartRedux } from "../Redux/Action/action";
+import Loading from "../component/Loading/Loading";
 
 const ProductDetailPage = () => {
   const { checkAccount } = useContext(Account);
@@ -15,6 +16,7 @@ const ProductDetailPage = () => {
   const { id } = useParams();
   const [data, setData] = useState({});
   const [addToCart, setAddToCart] = useState(false);
+  const [isDisplay, setIsDisplay] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -47,6 +49,11 @@ const ProductDetailPage = () => {
     // createCart();
   }, [addToCart]);
 
+  useEffect(() => {
+    setTimeout(() => {
+      setIsDisplay(true);
+    }, 1000);
+  }, [isDisplay]);
   const handleAddToCart = () => {
     setAddToCart(true);
   };
@@ -54,20 +61,24 @@ const ProductDetailPage = () => {
   return (
     <>
       <Header />
-      <div className="body">
-        <div className="row position-relative">
-          <div className="col-sm-8">
-            <ProductDetailMain data={data} />
-          </div>
-          <div className="col-sm-4">
-            <ProductDetailAside
-              data={data}
-              handleAddToCart={handleAddToCart}
-              checkAccount={checkAccount}
-            />
+      {isDisplay ? (
+        <div className="body">
+          <div className="row position-relative">
+            <div className="col-sm-8">
+              <ProductDetailMain data={data} />
+            </div>
+            <div className="col-sm-4">
+              <ProductDetailAside
+                data={data}
+                handleAddToCart={handleAddToCart}
+                checkAccount={checkAccount}
+              />
+            </div>
           </div>
         </div>
-      </div>
+      ) : (
+        <Loading />
+      )}
       <Footer />
     </>
   );

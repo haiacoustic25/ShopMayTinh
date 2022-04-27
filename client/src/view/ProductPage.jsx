@@ -7,7 +7,7 @@ import axios from "axios";
 const ProductPage = () => {
   const [data, setData] = useState([]);
   const [query, setQuery] = useState({});
- 
+
   useEffect(() => {
     const callAPI = async () => {
       const res = await axios.get(`http://localhost:5000/product/laptop`, {
@@ -24,10 +24,11 @@ const ProductPage = () => {
   useEffect(() => {
     setQuery({});
   }, []);
+  // console.log(query);
   const handleFilter = (filter) => {
     setQuery({ ...query, ...filter });
+    console.log(filter);
   };
-
   const handleDeleteQuery = (filter) => {
     const newQuery = query;
     delete newQuery[filter];
