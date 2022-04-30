@@ -9,7 +9,7 @@ import { Account } from "../Context/UserContext";
 import { useDispatch, useSelector } from "react-redux";
 import { createNewCartRedux } from "../Redux/Action/action";
 import Loading from "../component/Loading/Loading";
-
+import { apiUrl } from "../linkContants";
 const ProductDetailPage = () => {
   const { checkAccount } = useContext(Account);
 
@@ -22,7 +22,7 @@ const ProductDetailPage = () => {
 
   useEffect(() => {
     const getData = async () => {
-      const res = await axios.get(`http://localhost:5000/product/${id}`);
+      const res = await axios.get(`${apiUrl}/product/${id}`);
       if (res.data.success) {
         setData(res.data.product);
       }

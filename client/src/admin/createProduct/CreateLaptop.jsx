@@ -9,6 +9,8 @@ import MarkdownIt from "markdown-it";
 import MdEditor from "react-markdown-editor-lite";
 import "react-markdown-editor-lite/lib/index.css";
 
+import { apiUrl } from "../../linkContants";
+
 const mdParser = new MarkdownIt();
 
 const CreateLaptop = () => {
@@ -93,10 +95,7 @@ const CreateLaptop = () => {
   useEffect(() => {
     if (check) {
       const submit = async () => {
-        const res = await axios.post(
-          "http://localhost:5000/product/create/laptop",
-          laptop
-        );
+        const res = await axios.post(`${apiUrl}/product/create/laptop`, laptop);
         if (res.data.success) {
           alert("Tạo sản phẩm thành công.");
         }

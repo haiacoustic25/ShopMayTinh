@@ -6,7 +6,7 @@ import { useState } from "react";
 import { useContext } from "react";
 import { Account } from "../../../../../Context/UserContext";
 import axios from "axios";
-
+import {apiUrl} from "../../../../../linkContants"
 const Login = () => {
   const [login, setLogin] = useState({ username: "", password: "" });
   const [error, setError] = useState({ isError: false, message: "" });
@@ -20,7 +20,7 @@ const Login = () => {
   };
   const handleLogin = async (event) => {
     event.preventDefault();
-    const res = await axios.post("http://localhost:5000/auth/login", login);
+    const res = await axios.post(`${apiUrl}/auth/login`, login);
 
     if (res.data.success) {
       confirmLogin(res.data.user);

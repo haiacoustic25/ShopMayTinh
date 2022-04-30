@@ -3,7 +3,7 @@ import "./FixProduct.css";
 import { Form, Row, Button, Col } from "react-bootstrap";
 import { useState } from "react";
 import axios from "axios";
-
+import {apiUrl} from "../../linkContants"
 const FixProduct = (props) => {
   const { inforLaptop, fixProduct, setCheck } = props;
   const [laptop, setLaptop] = useState({
@@ -26,7 +26,7 @@ const FixProduct = (props) => {
   const onSubmit = async (event) => {
     event.preventDefault();
     const res = await axios.put(
-      `http://localhost:5000/product/fix/laptop/${inforLaptop._id}`,
+      `${apiUrl}/product/fix/laptop/${inforLaptop._id}`,
       laptop
     );
     if (res.data.success) {

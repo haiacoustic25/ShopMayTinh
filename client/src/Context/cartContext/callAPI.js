@@ -1,8 +1,9 @@
 import axios from "axios";
 import { callAPICart } from "./cartAction";
+import {apiUrl} from "../../linkContants"
 
 const getCart = (userId) =>
-  axios.get(`http://localhost:5000/cart/read?userId=${userId}`);
+  axios.get(`${apiUrl}/cart/read?userId=${userId}`);
 
 export const requestCart = async (dispatch, userId) => {
   const res = await getCart(userId);

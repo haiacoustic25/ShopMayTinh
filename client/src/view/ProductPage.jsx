@@ -3,14 +3,14 @@ import ListProductPage from "../component/listProductPage/ListProductPage";
 import MenuProduct from "../component/menuProduct/MenuProduct";
 import { filterLaptop } from "../component/menuProduct/constants";
 import axios from "axios";
-
+import { apiUrl } from "../linkContants";
 const ProductPage = () => {
   const [data, setData] = useState([]);
   const [query, setQuery] = useState({});
 
   useEffect(() => {
     const callAPI = async () => {
-      const res = await axios.get(`http://localhost:5000/product/laptop`, {
+      const res = await axios.get(`${apiUrl}/product/laptop`, {
         params: query,
       });
 

@@ -5,40 +5,24 @@ import axios from "axios";
 import "./ListProduct.css";
 import FixProduct from "./FixProduct";
 import DeleteProduct from "./DeleteProduct";
+import { apiUrl } from "../../linkContants";
 
 const ListProduct = (props) => {
   const { selectProp } = props;
   const [listLaptop, setListLaptop] = useState([]);
-  const [listPC, setListPC] = useState([]);
-  const [listMouse, setListMouse] = useState([]);
   const [fixProduct, setFixProduct] = useState(false);
   const [deleteProduct, setDeleteProduct] = useState(false);
   const [inforLaptop, setInforLaptop] = useState();
-  const [inforPC, setInforPC] = useState();
-  const [inforMouse, setInforMouse] = useState();
   const [check, setCheck] = useState(false);
 
   useEffect(() => {
     // call API laptop
     const laptop = async () => {
-      const res = await axios.get("http://localhost:5000/product/laptop");
+      const res = await axios.get(`${apiUrl}/product/laptop`);
       if (res.data.success) setListLaptop(res.data.listProduct);
     };
     laptop();
 
-    // call API PC
-    const PC = async () => {
-      const res = await axios.get("http://localhost:5000/product/PC");
-      if (res.data.success) setListPC(res.data.listProduct);
-    };
-    PC();
-
-    // call API mouse
-    const mouse = async () => {
-      const res = await axios.get("http://localhost:5000/product/mouse");
-      if (res.data.success) setListMouse(res.data.listProduct);
-    };
-    mouse();
     setCheck(false);
   }, [check]);
 
@@ -80,7 +64,6 @@ const ListProduct = (props) => {
                       setFixProduct(true);
                       setInforLaptop(laptop);
                     }}
-                    className="function"
                   />
                   <img
                     src="https://firebasestorage.googleapis.com/v0/b/shopmaytinh-f4fce.appspot.com/o/icon%2Fdelete.png?alt=media&token=eb340b2e-9b14-4556-b19a-49872a227fb3"
@@ -89,110 +72,6 @@ const ListProduct = (props) => {
                     onClick={() => {
                       setDeleteProduct(true);
                       setInforLaptop(laptop);
-                    }}
-                    className="function"
-                  />
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </Table>
-      )}
-      {selectProp.product && selectProp.product === "PC" && (
-        <Table striped bordered hover>
-          <thead>
-            <tr>
-              <th>STT</th>
-              <th>Tên máy</th>
-              <th>Hãng</th>
-              <th>Giá</th>
-              <th>Khuyễn mãi</th>
-              <th>Giá mới</th>
-              <th>Ảnh</th>
-              <th>Chức năng</th>
-            </tr>
-          </thead>
-          <tbody>
-            {listPC.map((PC, index) => (
-              <tr key={index}>
-                <td>{index + 1}</td>
-                <td>{PC.name}</td>
-                <td>{PC.trademark}</td>
-                <td>{PC.price.toLocaleString()}</td>
-                <td>{PC.promotion}</td>
-                <td>{PC.priceNew.toLocaleString()}</td>
-                <td>
-                  <img src={PC.img} alt="" className="img" />
-                </td>
-                <td>
-                  <img
-                    src="https://firebasestorage.googleapis.com/v0/b/shopmaytinh-f4fce.appspot.com/o/icon%2Fedit.png?alt=media&token=59f160ee-ef44-4158-aa45-15958e52c8af"
-                    alt=""
-                    className="mr-2"
-                    onClick={() => {
-                      setFixProduct(true);
-                      setInforPC(PC);
-                    }}
-                    className="function"
-                  />
-                  <img
-                    src="https://firebasestorage.googleapis.com/v0/b/shopmaytinh-f4fce.appspot.com/o/icon%2Fdelete.png?alt=media&token=eb340b2e-9b14-4556-b19a-49872a227fb3"
-                    alt=""
-                    onClick={() => {
-                      setDeleteProduct(true);
-                      setInforPC(PC);
-                    }}
-                    className="function"
-                  />
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </Table>
-      )}
-      {selectProp.product && selectProp.product === "mouse" && (
-        <Table striped bordered hover>
-          <thead>
-            <tr>
-              <th>STT</th>
-              <th>Tên Chuột</th>
-              <th>Hãng</th>
-              <th>Giá</th>
-              <th>Khuyễn mãi</th>
-              <th>Giá hiện tại</th>
-              <th>Ảnh</th>
-              <th>Chức năng</th>
-            </tr>
-          </thead>
-          <tbody>
-            {listMouse.map((mouse, index) => (
-              <tr key={index}>
-                <td>{index + 1}</td>
-                <td>{mouse.name}</td>
-                <td>{mouse.trademark}</td>
-                <td>{mouse.price}</td>
-                <td>{mouse.promotion}</td>
-                <td>{mouse.priceNew}</td>
-                <td>
-                  <img src={mouse.img} alt="" className="img" />
-                </td>
-                <td>
-                  <img
-                    src="https://firebasestorage.googleapis.com/v0/b/shopmaytinh-f4fce.appspot.com/o/icon%2Fedit.png?alt=media&token=59f160ee-ef44-4158-aa45-15958e52c8af"
-                    alt=""
-                    className="mr-2"
-                    onClick={() => {
-                      setFixProduct(true);
-                      setInforMouse(mouse);
-                    }}
-                    className="function"
-                  />
-                  <img
-                    src="https://firebasestorage.googleapis.com/v0/b/shopmaytinh-f4fce.appspot.com/o/icon%2Fdelete.png?alt=media&token=eb340b2e-9b14-4556-b19a-49872a227fb3"
-                    alt=""
-                    onClick={() => {
-                      setDeleteProduct(true);
-                      setInforMouse(mouse);
                     }}
                     className="function"
                   />
@@ -230,8 +109,6 @@ const ListProduct = (props) => {
           <div className="modal__body">
             <DeleteProduct
               inforLaptop={inforLaptop}
-              inforMouse={inforMouse}
-              inforPC={inforPC}
               deleteProduct={setDeleteProduct}
               setCheck={setCheck}
             />

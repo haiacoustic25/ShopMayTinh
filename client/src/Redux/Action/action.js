@@ -11,7 +11,7 @@ import {
 } from "./type";
 
 import axios from "axios";
-
+import { apiUrl } from "../../linkContants";
 // fetch cart
 export const fetchCartRequest = () => {
   return { type: FETCH_CART_REQUEST };
@@ -27,7 +27,7 @@ export const fetchAllCartRedux = (id) => {
   return async (dispatch, getState) => {
     dispatch(fetchCartRequest());
     try {
-      let res = await axios.get(`http://localhost:5000/cart/read?userId=${id}`);
+      let res = await axios.get(`${apiUrl}/cart/read?userId=${id}`);
 
       const data = res.data.cart ? res.data.cart : [];
       if (res.data.success) {
@@ -56,7 +56,7 @@ export const createNewCartRedux = (userId, products) => {
   return async (dispatch, getState) => {
     dispatch(createCartRequest());
     try {
-      let res = await axios.post("http://localhost:5000/cart/create", {
+      let res = await axios.post(`${apiUrl}/cart/create`, {
         userId,
         products,
       });
@@ -89,7 +89,7 @@ export const deleteProductInCartRedux = (userId, productId) => {
     dispatch(deleteProductInCartRequest());
     try {
       const res = await axios.delete(
-        `http://localhost:5000/cart/delete?userId=${userId}&productId=${productId}`
+        `${apiUrl}/cart/delete?userId=${userId}&productId=${productId}`
       );
       console.log(productId);
       if (res.data.success) {

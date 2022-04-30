@@ -2,6 +2,7 @@ import React from "react";
 import "./DeleteProduct.css";
 import { Button } from "react-bootstrap";
 import axios from "axios";
+import {apiUrl} from "../../linkContants"
 
 const DeleteProduct = (props) => {
   const { inforLaptop, deleteProduct, setCheck } = props;
@@ -12,7 +13,7 @@ const DeleteProduct = (props) => {
       link = inforLaptop._id;
     }
     const res = await axios.delete(
-      `http://localhost:5000/product/delete/${link}`
+      `${apiUrl}/product/delete/${link}`
     );
     if (res.data.success) {
       alert("Xóa thành công");

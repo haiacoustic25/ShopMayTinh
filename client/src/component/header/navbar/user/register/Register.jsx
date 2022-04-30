@@ -8,7 +8,7 @@ import axios from "axios";
 import { storage } from "../../../../../firebase";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { useEffect } from "react";
-
+import { apiUrl } from "../../../../../linkContants";
 const Register = () => {
   const [register, setRegister] = useState({
     firstName: "",
@@ -66,15 +66,15 @@ const Register = () => {
   const handleRegister = async (event) => {
     event.preventDefault();
     const file = event.target[5].files[0];
-    
-    if(file) uploadFiles(file);
+
+    if (file) uploadFiles(file);
     else setIsSave(true);
   };
   useEffect(() => {
     if (isSave) {
       const submit = async () => {
         const res = await axios.post(
-          "http://localhost:5000/auth/register",
+          `${apiUrl}/auth/register`,
           register
         );
         if (res.data.success) {
@@ -87,12 +87,11 @@ const Register = () => {
             setError({ isError: true, message: "Tên đăng nhập đã tồn tại" });
           }
         }
-      }
+      };
       submit();
     }
     setIsSave(false);
   }, [isSave]);
-
 
   return (
     <Form className="register__form" onSubmit={handleRegister}>
